@@ -102,7 +102,7 @@ export default function FlagshipSaaS() {
             <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-blue-500/10 rounded-[2rem] blur-2xl" />
             <div className="relative rounded-[1.5rem] md:rounded-[2rem] border border-white/10 bg-black/50 overflow-hidden shadow-2xl lg:rotate-2 hover:rotate-0 transition-transform duration-700">
               <img
-                src={`${process.env.NEXT_PUBLIC_ASSETS_CDN}/images/preview/landing-page-v1.png`}
+                src='/images/preview/landing-page-v1.png'
                 alt="VersionCV SaaS Preview"
                 className="w-full h-auto object-cover opacity-80 hover:opacity-100 transition-opacity"
               />

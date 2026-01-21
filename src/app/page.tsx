@@ -8,6 +8,7 @@ import { RESUME_DATA } from "@/data/resume";
 import { ActivityIcon, ArrowRight, Layers, ShieldCheck, Timer, Trophy, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import RecognitionSection from "@/components/RecognitionSection";
+import PerspectiveEngine from "@/components/PrespectiveEngine";
 
 export default function Home() {
   const [showArchitecture, setShowArchitecture] = useState(false);
@@ -39,6 +40,14 @@ export default function Home() {
 
       {/* ================= HERO ================= */}
       <Hero />
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        <PerspectiveEngine/>
+      </motion.div>
 
     
       <section id="saas">
