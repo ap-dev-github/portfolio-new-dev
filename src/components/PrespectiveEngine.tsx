@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Bot, User, Cpu, Terminal, Briefcase, GraduationCap, X, Lightbulb, BotIcon } from 'lucide-react';
 
 const SUMMARIES = {
-  founder:"I build high-performance systems designed to scale from day one and cost less, ensuring your tech stays profitable as it grows.",
-  engineer: "Computer Science Engineer specializing in serverless orchestration. I apply core CS fundamentals to build hardened systems, implementing Zero Client-Trust models, JWT/Token protection, and robust DDoS/XSS mitigation. My focus is full-stack optimization—bridging the gap between low-latency code and cost-efficient infrastructure to achieve total system-level performance.",
-  architect: "Architected versionCV as a zero-idle-cost serverless SaaS. Engineered a hybrid mesh using Cloudflare Workers for edge latency and Google Cloud Run for heavy NPM orchestration on a per-request basis. Decoupled monolithic dependencies into an event-driven infrastructure that achieves $0.00 overhead.",
-  recruiter: "Full-stack engineer capable of owning production-grade products end-to-end. Specializes in multi-cloud serverless roles and practical AI integration to solve business-critical problems. IIT Kanpur National Hackathon 1st Runner Up (Top 0.2%) with a strong academic foundation (8.69 CGPA).",
-  student: "Self-made developer focused on the 'Build-First' philosophy. From small prototypes to production SaaS, I argue with AI on the most efficient architectural paths, build, plan, and iterate. My expertise comes from solving real-world, undocumented problems that cannot be learned in a classroom."
+  founder: "Building high-performance systems designed to scale from day one while minimizing costs, ensuring technology stays profitable as the business grows.",
+  engineer: "Computer Science Engineer specializing in serverless orchestration. Applying core CS fundamentals to build hardened systems, implementing Zero Client-Trust models, JWT/Token protection, and robust DDoS/XSS mitigation. Focus is on full-stack optimization—bridging the gap between low-latency code and cost-efficient infrastructure to achieve total system-level performance.",
+  architect: "Architected versionCV as a zero-idle-cost serverless SaaS. Engineered a hybrid mesh using Cloudflare for edge latency and Google Cloud Run for heavy NPM orchestration on a per-request basis. Decoupled monolithic dependencies into an event-driven infrastructure that achieves approx. $0.00 overhead.",
+  recruiter: "Full-stack engineer capable of owning production-grade products end-to-end. Specializes in multi-cloud roles and practical AI integration to solve business-critical problems. IIT Kanpur National Hackathon 1st Runner Up (Top 0.2%) with a strong academic foundation (8.69 CGPA).",
+  student: "Self-made developer focused on the 'Build-First' philosophy. From small prototypes to production SaaS, expertise involves leveraging AI for efficient architectural paths to build, plan, and iterate. Specialized in solving real-world, undocumented problems that go beyond traditional classroom learning."
 };
 
 const SYSTEM_LOGS = [
@@ -65,7 +65,7 @@ export default function ProfileSummarizer() {
             <div className="h-8 w-8 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 border border-emerald-500/30 font-mono text-[10px] text-emerald-400"><BotIcon size={10}/></div>
             <div className="bg-white/5 border border-white/10 p-4 rounded-2xl rounded-tl-none">
               <p className="text-sm text-slate-300 leading-relaxed">
-                Identify your role. I will synthesize Ayush's infrastructure data into a targeted brief.
+              Identify your role. System will generate a portfolio summary based on Ayush's work.
               </p>
             </div>
           </div>

@@ -27,32 +27,32 @@ const TEST_PROOFS = [
    {
     heading: "Load test 5k request per sec",
     desc: "Checking the limits of the scanner endpoint.",
-    img: `${process.env.NEXT_PUBLIC_ASSETS_CDN}/images/tests/five-k-graph.png`,
+    img: `/images/tests/five-k-graph.png`,
     latency: "0.23s (Average)"
   },
    {
     heading: "Main proxy worker metrics",
     desc: "Visual proof of the performance of the proxy worker that handles all the routing and auth.",
-    img:  `${process.env.NEXT_PUBLIC_ASSETS_CDN}/images/tests/proxy-metrics.png`,
+    img:  `/images/tests/proxy-metrics.png`,
     latency: "79ms (Average)"
   },
     {
     heading: "Datebase response times",
     desc: "Proof of the Heuristic Validator identifying and correcting unclosed HTML tags from LLM output.",
-    img:  `${process.env.NEXT_PUBLIC_ASSETS_CDN}/images/tests/db-latency.png`,
+    img:  `/images/tests/db-latency.png`,
     latency: "85ms"
   },
   {
     heading: "Load test at 2k request per sec",
     desc: "Check for the robustness of the scanner at the 2k concurrency.",
-    img:`${process.env.NEXT_PUBLIC_ASSETS_CDN}/images/tests/two-thousand.png`, 
+    img:`/images/tests/two-thousand.png`, 
     latency: "0.08s (Average)"
   },
  
 {
     heading: "AI gateway Metrics",
     desc: "Metrics of the ai gateway that handles all the llm calls.",
-    img: `${process.env.NEXT_PUBLIC_ASSETS_CDN}/images/tests/gateway.png`,
+    img: `/images/tests/gateway.png`,
     latency: "12s (Average)"
   },
 ];

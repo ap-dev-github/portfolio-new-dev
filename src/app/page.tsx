@@ -148,16 +148,32 @@ export default function Home() {
 </section>
 
 
+{/* ================= FOOTER ================= */}
+<footer className="py-12 border-t border-white/5 bg-[#05080c]">
+  <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div className="text-left">
+      <span className="font-display font-bold text-lg tracking-tight text-white">
+        {RESUME_DATA.name.split(" ")[0]}<span className="text-blue-500">.dev</span>
+      </span>
+      <p className="text-slate-600 text-xs mt-1 font-medium">
+        Indie SaaS Developer · Multi-cloud Systems · Serverless
+      </p>
+    </div>
 
-   
+    <div className="flex items-center gap-8">
+      <a href="mailto:ayush@versioncv.com" className="text-slate-400 hover:text-blue-400 text-xs font-mono transition-colors">
+        ayush@versioncv.com
+      </a>
+      <a href="https://linkedin.com/in/linkedap" target="_blank" className="text-slate-400 hover:text-blue-400 text-xs font-mono transition-colors">
+        LINKEDIN
+      </a>
+    </div>
 
-      {/* ================= FOOTER ================= */}
-      <footer className="py-8 text-center text-slate-600 text-sm border-t border-slate-900 bg-[#05080c]">
-        <p>
-          © 2026 Ayush Pandey. Indie SaaS Developer · Multi-cloud Systems ·
-          Serverless Architecture
-        </p>
-      </footer>
+    <p className="text-slate-600 text-[10px] font-mono uppercase tracking-widest">
+      © 2026 Ayush Pandey
+    </p>
+  </div>
+</footer>
 
       {/* ================= ARCHITECTURE MODALS ================= */}
       {showArchitecture && (
