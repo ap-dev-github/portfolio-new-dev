@@ -13,6 +13,7 @@ mermaid.initialize({
   startOnLoad: true,
   theme: 'dark',
   securityLevel: 'loose',
+  flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' },
   themeVariables: {
     fontFamily: 'monospace',
     primaryColor: '#10b981',

@@ -154,7 +154,7 @@ export default function ProfileSummarizer() {
                 key={item.id}
                 onClick={() => handleSelect(item.id as keyof typeof SUMMARIES)}
                 disabled={isTyping}
-                className={`p-3 rounded-xl border transition-all flex items-center justify-center gap-2 group ${
+                className={`cursor-pointer p-3 rounded-xl border transition-all flex items-center justify-center gap-2 group ${
                   active === item.id 
                   ? 'bg-emerald-500/20 border-emerald-500/40 text-white' 
                   : 'bg-slate-800/40 border-white/5 text-slate-500 hover:border-white/20'

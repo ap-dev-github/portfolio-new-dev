@@ -16,8 +16,9 @@ import {
   X, Cpu, Database, Globe, Shield, Lock, Zap, Server, 
   Code, Activity, Search, FileEdit, MessageSquare, 
   ListChecks, 
-  BarChart3
+  BarChart3, Home
 } from 'lucide-react';
+import HomeButton from '@/components/HomeButton';
 
 /* ======================================================
    1. MASTER DATA DEFINITIONS (NON-TRUNCATED)
@@ -451,6 +452,7 @@ function TestMetricsView() {
             </p>
           </div>
         </div>
+      
       </div>
 
       {/* ================= MASTER–DETAIL GRID ================= */}
@@ -624,6 +626,7 @@ export default function PipelineVisualizer() {
             >
               {tab.label}
             </button>
+            
           ))}
           <button 
   onClick={() => {
@@ -640,6 +643,7 @@ export default function PipelineVisualizer() {
   View Test Metrics & Latencies
 </button>
         </div>
+          <HomeButton/>
         <div className="text-center md:text-right">
             <h1 className="text-white text-lg md:text-xl font-black tracking-tighter italic">VERSION-CV ARCHITECTURE</h1>
             <p className="text-blue-500 font-mono text-[8px] md:text-[9px] tracking-[0.4em] uppercase font-bold">Serverless Orchestration</p>
@@ -688,31 +692,50 @@ export default function PipelineVisualizer() {
         </AnimatePresence>
 
         {/* FULL PIPELINE WALKTHROUGH (NON-TRUNCATED) */}
-     {activeTab !== 'test-metrics' &&  <div className="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:right-auto z-20 pointer-events-none">
-            <motion.div 
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} key={activeTab}
-                className="p-4 mr-5 md:p-10 bg-slate-950/80 backdrop-blur-2xl border border-white/10 rounded-2xl md:rounded-[3rem] shadow-[0_30px_100px_rgba(0,0,0,0.8)] relative overflow-hidden"
-            >
-                <div className="absolute -top-32 -left-32 w-64 h-64 bg-blue-500/10 blur-[100px]" />
-                <div className="relative z-10 space-y-2 md:space-y-6">
-                    <div className="flex items-center gap-3 md:gap-4">
-                        <div className="p-2 md:p-3 bg-blue-500/20 rounded-xl md:rounded-2xl"><Activity size={20} className="text-blue-400" /></div>
-                        <div>
-                            <h3 className="text-blue-400 font-mono text-[8px] md:text-[11px] uppercase tracking-[0.4em] font-black">Pipeline Walkthrough</h3>
-                            <p className="text-white text-sm md:text-lg font-black tracking-tight uppercase italic">{activeTab.replace('-', ' ')} Narrative</p>
-                        </div>
-                    </div>
-                    <p className="text-slate-300 text-[10px] md:text-[15px] leading-relaxed md:leading-[1.8] font-medium tracking-wide italic">
-                        {activeTab === 'ats-scan' && "A multi-stage discovery mesh. Requests are verified via JWT at the edge, offloaded via Internal RPC to isolated GCP Cloud Run containers for high-fidelity conversion, followed by structural distortion audits and deterministic NLP-based scoring pass."}
-                        {activeTab === 'ats-optimizer' && "Asynchronous transformation pipeline. Requests are decoupled via Cloudflare Queues to prevent head-of-line blocking. Progress is streamed in real-time via SSE while the LLM Audit Engine executes XML-guided DOM self-healing and contextual verb replacement."}
-                        {activeTab === 'pdf-maker' && "Cross-cloud rendering handshake. DOM state is buffered in an R2 Temp bucket to bypass Edge payload limits. A GCP Cloud Run instance provisioned with Headless Chromium renders the PDF, migrates the binary to a Protected Vault, and atomically updates D1 metadata entries."}
-                        {activeTab === 'jd-scanner' && "Forensic JD matching sequence. The consumer provisioner fetches resume assets from R2 bucket, verifies ownership, and executes a vector-based semantic analysis against role requirements to generate an instant compatibility report and plausible skill gap audit cached in KV."}
-                        {activeTab === 'jd-optimizer' && "Granular context injection mesh. To prevent LLM drift, the file is dismantled into sectional tokens. Only targeted fragments are sent to the LLM within a strict algorithmic context. The optimized results are re-injected into the original structure and validated via structure-test before editor hydration."}
-                        {activeTab === 'payment' && "Idempotent billing mesh. Atomic subscription logic prevents gateway-DB mismatch through rollback triggers. HMAC-verified webhooks are ingested via Message Queues to prevent gateway timeout loops, while async consumers handle ZeptoMail fulfillment and inventory synchronization."}
-                    </p>
-                </div>
-            </motion.div>
-        </div>}
+  {activeTab !== 'test-metrics' && (
+  <div className="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:right-10 z-20 pointer-events-none">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }} 
+      animate={{ opacity: 1, y: 0 }} 
+      key={activeTab}
+      className="p-4 md:p-6 bg-slate-950/90 backdrop-blur-2xl border border-white/10 rounded-2xl md:rounded-[2rem] shadow-[0_30px_100px_rgba(0,0,0,0.8)] relative overflow-hidden max-w-5xl"
+    >
+      {/* Ambient Glows */}
+      <div className="absolute -top-32 -left-32 w-64 h-64 bg-blue-500/10 blur-[100px]" />
+      
+      <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-3 md:gap-8">
+        
+        {/* Header Section: Tightened and moved to side on desktop */}
+        <div className="flex items-center gap-3 shrink-0">
+          <div className="p-2 bg-blue-500/20 rounded-lg md:rounded-xl">
+            <Activity size={18} className="text-blue-400 md:w-6 md:h-6" />
+          </div>
+          <div className="space-y-0.5">
+            <h3 className="text-blue-400 font-mono text-[7px] md:text-[10px] uppercase tracking-[0.3em] font-black leading-none">
+              Pipeline Walkthrough
+            </h3>
+            <p className="text-white text-xs md:text-sm font-black tracking-tight uppercase italic leading-none whitespace-nowrap">
+              {activeTab.replace('-', ' ')} Narrative
+            </p>
+          </div>
+        </div>
+
+        {/* Divider: Visible only on desktop to separate header from description */}
+        <div className="hidden md:block w-px h-10 bg-white/10" />
+
+        {/* Description Section: Fluid text size and tighter leading */}
+        <p className="text-slate-300 text-[9px] md:text-[13px] leading-tight md:leading-relaxed font-medium tracking-wide italic flex-1">
+          {activeTab === 'ats-scan' && "A multi-stage discovery mesh. Requests are verified via JWT at the edge, offloaded via Internal RPC to isolated GCP Cloud Run containers for high-fidelity conversion, followed by structural distortion audits and deterministic NLP-based scoring pass."}
+          {activeTab === 'ats-optimizer' && "Asynchronous transformation pipeline. Requests are decoupled via Cloudflare Queues to prevent head-of-line blocking. Progress is streamed in real-time via SSE while the LLM Audit Engine executes XML-guided DOM self-healing and contextual verb replacement."}
+          {activeTab === 'pdf-maker' && "Cross-cloud rendering handshake. DOM state is buffered in an R2 Temp bucket to bypass Edge payload limits. A GCP Cloud Run instance provisioned with Headless Chromium renders the PDF, migrates the binary to a Protected Vault, and atomically updates D1 metadata entries."}
+          {activeTab === 'jd-scanner' && "Forensic JD matching sequence. The consumer provisioner fetches resume assets from R2 bucket, verifies ownership, and executes a vector-based semantic analysis against role requirements to generate an instant compatibility report and plausible skill gap audit cached in KV."}
+          {activeTab === 'jd-optimizer' && "Granular context injection mesh. To prevent LLM drift, the file is dismantled into sectional tokens. Only targeted fragments are sent to the LLM within a strict algorithmic context. The optimized results are re-into the original structure and validated via structure-test before editor hydration."}
+          {activeTab === 'payment' && "Idempotent billing mesh. Atomic subscription logic prevents gateway-DB mismatch through rollback triggers. HMAC-verified webhooks are ingested via Message Queues to prevent gateway timeout loops, while async consumers handle ZeptoMail fulfillment and inventory synchronization."}
+        </p>
+      </div>
+    </motion.div>
+  </div>
+)}
       </div>
       
 

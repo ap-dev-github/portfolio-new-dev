@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Layers, Activity, ShieldCheck, Zap, Database, ArrowRight } from 'lucide-react';
+import HomeButton from '@/components/HomeButton';
 
 /* ======================================================
     ARCHITECTURE DATA
@@ -158,6 +159,7 @@ export default function VersionCVPage() {
             <span className="text-slate-500 text-sm font-mono tracking-tighter">
               (HLD overview below)
             </span>
+            <HomeButton/>
           </div>
         </header>
 

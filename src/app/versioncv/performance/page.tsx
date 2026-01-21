@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, BarChart3, ZoomIn } from 'lucide-react';
+import HomeButton from '@/components/HomeButton';
 
 /* ======================================================
     DATA DEFINITIONS
@@ -81,6 +82,7 @@ export default function TestMetricsPage() {
                 Latency & Integrity Proofs
             </p>
           </div>
+          <div><HomeButton/></div>
         </div>
       </div>
 
