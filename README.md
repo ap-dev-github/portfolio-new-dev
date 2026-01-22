@@ -14,6 +14,9 @@
   Most portfolios function as static galleries. This platform is an **Engineering Audit**. 
   
   I have architected this portfolio to expose the **"How"** and the **"Why"** behind my development ecosystem. Instead of a surface-level list, I provide a deep-dive into my flagship SaaS, **VersionCV**. Using **Gemini 3 Flash** to generate structured **React Flow** pipeline, I created a dynamic map of distributed service dependencies, allowing evaluators to audit the system design of my project in an interactive way.
+
+  ![React Flow Architecture](public/images/readme/react-flow.png)
+*Figure 1: Interactive System Design view of projects generated via Gemini 3 Flash and React Flow.*
   
   ---
   
@@ -21,6 +24,10 @@
   The portfolio itself is optimized for high-performance delivery while maintaining professional-grade security:
   
   * **Shielded Origin Architecture:** The portfolio's **Google Cloud Run** instance is protected by a **Cloudflare Proxy**. This setup masks the origin IP, mitigates DDoS risks , and prevents "Denial of Wallet" attacks by filtering malicious traffic before it impacts the compute budget.
+  * **Design Decision FAQs:** I have integrated a technical FAQ for project to explain the intuition behind my architectural choices.
+
+![Design FAQ Screenshot](public/images/readme/faq.png)
+*Figure 2: Project-specific FAQ detailing the engineering "Why" behind all architectural decisions and trade-offs.*
   ---
   
   ##  Google AI Integration: The Co-Architect
