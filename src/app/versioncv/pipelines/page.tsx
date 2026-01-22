@@ -16,9 +16,11 @@ import {
   X, Cpu, Database, Globe, Shield, Lock, Zap, Server, 
   Code, Activity, Search, FileEdit, MessageSquare, 
   ListChecks, 
-  BarChart3, Home
+  BarChart3, Home,
+  Terminal
 } from 'lucide-react';
 import HomeButton from '@/components/HomeButton';
+import EngineeringAuditModal from '@/components/ArchitectureFAQ';
 
 /* ======================================================
    1. MASTER DATA DEFINITIONS (NON-TRUNCATED)
@@ -430,6 +432,7 @@ function TestMetricsView() {
   const [selectedTest, setSelectedTest] = useState<typeof TEST_PROOFS[0] | null>(
     TEST_PROOFS[0]
   );
+ 
   const [zoomImg, setZoomImg] = useState<string | null>(null);
   const isMobile =
   typeof window !== 'undefined' && window.innerWidth < 768;
@@ -600,6 +603,7 @@ function TestMetricsView() {
 
 export default function PipelineVisualizer() {
   const [selectedNode, setSelectedNode] = useState<any>(null);
+   const [isFAQOpen, setFAQOpen] = React.useState(false);
   const [activeTab, setActiveTab] = useState('ats-scan');
 
   const tabs = [
@@ -639,11 +643,25 @@ export default function PipelineVisualizer() {
       : 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20'
     }`}
 >
+
   <BarChart3 size={16} />
   View Test Metrics & Latencies
 </button>
         </div>
+                             <motion.button 
+  onClick={() =>setFAQOpen(true)}
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.98 }}
+  className="cursor-pointer inline-flex items-center gap-1 px-4 py-1.5 rounded-xl 
+             bg-blue-500/10 border border-blue-500/20 hover:border-blue-500/50 
+             text-blue-400 hover:text-blue-300 font-mono text-xs font-black
+             uppercase tracking-widest transition-all backdrop-blur-md group"
+>
+  <Terminal size={16} className="group-hover:rotate-12 transition-transform" />
+  See Engineering Decisions // FAQ
+</motion.button>
           <HomeButton/>
+ 
         <div className="text-center md:text-right">
             <h1 className="text-white text-lg md:text-xl font-black tracking-tighter italic">VERSION-CV ARCHITECTURE</h1>
             <p className="text-blue-500 font-mono text-[8px] md:text-[9px] tracking-[0.4em] uppercase font-bold">Serverless Orchestration</p>
@@ -775,6 +793,8 @@ export default function PipelineVisualizer() {
         Storage/DB: D1 / KV / R2 bucket
     </div>    
       </footer>
+      {/* FAQ Modal */}
+      < EngineeringAuditModal  isOpen={isFAQOpen} onClose={() => setFAQOpen(false)} />
       
     </div>
   );

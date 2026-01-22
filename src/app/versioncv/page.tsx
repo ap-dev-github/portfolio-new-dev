@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layers, Activity, ShieldCheck, Zap, Database, ArrowRight } from 'lucide-react';
+import { Layers, Activity, ShieldCheck, Zap, Database, ArrowRight, Terminal } from 'lucide-react';
 import HomeButton from '@/components/HomeButton';
+import ArchitectureFAQ from '@/components/ArchitectureFAQ';
 
 /* ======================================================
     ARCHITECTURE DATA
@@ -104,6 +105,7 @@ const HLD: Layer[] = [
 ====================================================== */
 
 export default function VersionCVPage() {
+  const [isFAQOpen, setFAQOpen] = React.useState(false);
   return (
     <main className="relative min-h-screen bg-[#05080c] text-slate-200 overflow-x-hidden font-sans">
       
@@ -156,6 +158,18 @@ export default function VersionCVPage() {
               View Interactive Pipelines
               <ArrowRight size={18} />
             </motion.a>
+            <motion.button 
+  onClick={() =>setFAQOpen(true)}
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.98 }}
+  className="cursor-pointer inline-flex items-center gap-3 px-6 py-3 rounded-xl 
+             bg-blue-500/10 border border-blue-500/20 hover:border-blue-500/50 
+             text-blue-400 hover:text-blue-300 font-mono text-xs font-black
+             uppercase tracking-widest transition-all backdrop-blur-md group"
+>
+  <Terminal size={16} className="group-hover:rotate-12 transition-transform" />
+  See Engineering Decisions // FAQ
+</motion.button>
             <span className="text-slate-500 text-sm font-mono tracking-tighter">
               (HLD overview below)
             </span>
@@ -237,6 +251,12 @@ export default function VersionCVPage() {
           ))}
         </div>
       </div>
+      <ArchitectureFAQ
+        isOpen={isFAQOpen}
+        onClose={() => setFAQOpen(false)}
+      />
+
+    
 
       {/* Footer Branding */}
       <footer className="py-20 text-center border-t border-white/5 mt-20">
