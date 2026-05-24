@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { GoogleAnalytics } from '@next/third-parties/google'
+import ClarityClient from '../components/ClarityClient';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space' });
@@ -90,6 +91,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased bg-[#0b0e14]`}>
+        <ClarityClient />
         {children}
       </body>
           <GoogleAnalytics gaId="G-XP3Z6H0SYP" />
